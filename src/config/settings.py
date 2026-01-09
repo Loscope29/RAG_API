@@ -42,9 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
      'rest_framework',
     'drf_spectacular',
-    'documents',
-    'search',
-    'users',
+    'src.documents',
+    'src.search',
+    'src.users',
 ]
 
 MIDDLEWARE = [
