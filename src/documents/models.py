@@ -6,7 +6,7 @@ from pgvector.django import VectorField
 
 class Document(models.Model):
     title = models.CharField(max_length=255)
-    file = models.FileField(upload_to="pdfs/", null=True, blank=True)
+    file = models.FileField(upload_to="documents/")
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

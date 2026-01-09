@@ -28,7 +28,7 @@ class SemanticSearchAPIView(APIView):
             .annotate(
                 distance=CosineDistance("embedding", query_embedding)
             )
-            .order_by("distance")[:5]
+            .order_by("distance")[:10]
         )
         # Historique utilisateur
         SearchQuery.objects.create(user=request.user, query=q)

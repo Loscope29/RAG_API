@@ -1,8 +1,8 @@
 import pdfplumber
 import re
+import docx
 
-
-def extract_text_from_pdf(pdf_file):
+def extract_pdf(pdf_file):
     """Extrait le texte d'un fichier PDF"""
     text = ""
     try:
@@ -12,6 +12,24 @@ def extract_text_from_pdf(pdf_file):
     except Exception as e:
         raise Exception(f"Erreur lors de l'extraction du texte: {str(e)}")
     return text
+
+def extract_txt(file):
+    """Extrait le texte d'un fichier txt"""
+    return file.read().decode("utf-8")
+
+def extract_docx(file):
+    doc = docx.Document(file)
+    return " ".join([p.text for p in doc.paragraphs])
+
+def extract_text(file):
+    name = file.name.lower()
+    if name.endswith(".pdf"):
+        return extract_text(file)
+    if name.endswith(".docx"):
+        return extract_text(file)
+    if name.endswith(".doc"):
+        return extract_text(file)
+    raise ValueError(f"File {name} does not have .doc or .docx extension")
 
 
 def clean_text(text: str) -> str:
