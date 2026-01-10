@@ -9,7 +9,10 @@ from .models import Document, DocumentChunk
 from .serializers import DocumentUploadSerializer
 # Create your views here.
 
-class PDFUploadAPIView(APIView):
+class DocumentUploadAPIView(APIView):
+    """
+    Upload de fichiers PDF / TXT / DOCX
+    """
     permission_classes = [IsAuthenticated]
     parser_classes = [MultiPartParser]
 
@@ -17,8 +20,12 @@ class PDFUploadAPIView(APIView):
         serializer = DocumentUploadSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         doc = serializer.save()
-        return Response({"id": doc.id, "title": doc.title})
 
+        return Response({
+            "id": doc.id,
+            "title": doc.title,
+            "message": "Document traité et indexé avec succès"
+        })
 
 class SimilarDocumentsAPIView(APIView):
     permission_classes = [IsAuthenticated]
