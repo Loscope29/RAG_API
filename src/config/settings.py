@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
      'rest_framework',
+    'rest_framework_jwt'
     'drf_spectacular',
     'src.documents',
     'src.search',
@@ -85,7 +86,7 @@ WSGI_APPLICATION = 'src.config.wsgi.application'
 DATABASES = {
     'default': {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "semantic_db",
+        "NAME": "semantic_multi",
         "USER": "postgres",
         "PASSWORD": "Azertya234@29",
         "HOST": "localhost",
