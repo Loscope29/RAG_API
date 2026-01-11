@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'src.documents',
     'src.search',
     'src.users',
+    'src.rag'
 ]
 
 MIDDLEWARE = [
